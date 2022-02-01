@@ -13,7 +13,7 @@ podman, buildah and skopeo are recommended, if you use Arch Linux, execute:
 推荐使用 podman、buildah 和 skopeo，如果你使用 Arch Linux，请执行：
 
 ```
-$ pacman -S podman buildah skopeo
+# pacman -S podman podman-compose buildah skopeo
 ```
 
 The following is a simple execute example:
@@ -24,5 +24,26 @@ The following is a simple execute example:
 $ git clone https://github.com/qculug/proxypool.git
 $ cd proxypool
 $ buildah build -t proxypool
+```
+
+```yml
+version: "3"
+
+services:
+  proxypool:
+    image: localhost/proxypool:latest
+    container_name: proxypool
+    restart: always
+    volumes:
+      - ./config.yaml:/home/proxypool/config.yaml
+      - ./config:/home/proxypool/config
+
+networks:
+  default:
+    external: true
+    name: nginx_https_default
+```
+
+```
 $ podman-compose up -d
 ```
