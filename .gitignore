@@ -25,7 +25,6 @@ vendor
 .DS_Store
 
 # assets
-assets/html/*
-assets/css/*
-assets/static/*
-
+#assets/html/*
+#assets/css/*
+#assets/static/*
