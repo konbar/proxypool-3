@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+        with:
+          repository: qculug/dockerfiles
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -24,6 +26,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           platforms: linux/amd64,linux/aarch64
+          file: proxypool/Dockerfile
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/proxypool:latest
