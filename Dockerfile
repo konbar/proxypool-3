@@ -5,7 +5,7 @@ LABEL maintainer="Roald Clark <roaldclark@gmail.com>"
 WORKDIR /build
 
 RUN apk add --no-cache --virtual .build-deps git make && \
-    git clone --branch dev https://github.com/qculug/proxypool.git && \
+    git clone --branch develop https://github.com/qculug/proxypool.git && \
     cd proxypool && \
     go mod download && \
     make docker
