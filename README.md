@@ -16,14 +16,12 @@ podman, buildah and skopeo are recommended, if you use Arch Linux, execute:
 # pacman -S podman podman-compose buildah skopeo
 ```
 
-The following is a simple execute example:
+Please go to the qcurug/dockerfiles repository, proxypool is packaged and published on ghcr.io.
 
-下面是一个简单的执行样例：
+请前往 qculug/dockerfiles 仓库，proxypool 已打包并发布于 ghcr.io。
 
 ```
-$ git clone https://github.com/qculug/proxypool.git
-$ cd proxypool
-$ buildah build -t proxypool
+$ podman run --rm -it ghcr.io/qculug/proxypool:latest
 ```
 
 ```yml
